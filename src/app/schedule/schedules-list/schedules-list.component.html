@@ -1,0 +1,15 @@
+<mat-card-content>
+    <mat-list>
+        <mat-list-item
+        *ngFor="let schedule of schedules$ | async"
+        [class.selected]="schedule.id === selectedId"
+        >
+            <a [routerLink]="[schedule.id]">
+            <span>
+                Week {{schedule.week}}: {{schedule.name}}
+            </span>
+        </a>
+        </mat-list-item>
+    </mat-list>
+</mat-card-content>
+<app-schedule-detail></app-schedule-detail>

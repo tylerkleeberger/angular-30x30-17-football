@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Play Library
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list style="white-space: nowrap">
+            <mat-list-item style="height: fit-content;"
+            *ngFor="let play of plays"
+            (click)="selected.emit(play)">
+                    <h3 matListItemTitle>{{play.title | titlecase}}</h3>
+                    <p matListItemLine>
+                        {{play.description}}
+                        <button mat-icon-button color="warn" class="delete"
+                        (click)="deleted.emit(play.id); $event.stopImmediatePropagation()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </p>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
